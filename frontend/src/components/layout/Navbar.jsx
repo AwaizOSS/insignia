@@ -1,8 +1,6 @@
-import React from 'react'
-
 function SideNav() {
   return (
-    <div className='sidenav'>
+    <div className="sidenav">
       <div>
         <p>Home</p>
       </div>
@@ -16,7 +14,7 @@ function SideNav() {
         <p>Settings</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default SideNav
+export default SideNav;

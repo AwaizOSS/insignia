@@ -1,19 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './components/Home'
-import Destinations from './components/Destinations'
-import MyAccount from './components/MyAccount'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { RootLayout, Home, Destinations, MyAccount } from "./pages";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/destinations",
+        element: <Destinations />,
+      },
+      {
+        path: "/myAccount",
+        element: <MyAccount />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/destinations' element={<Destinations/>}/>
-        <Route path='/myAccount' element={<MyAccount/>}/>
-      </Routes>
-    </BrowserRouter>
-      
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
