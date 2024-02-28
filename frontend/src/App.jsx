@@ -1,8 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
-import { RootLayout, Home, Destinations, MyAccount } from "./pages";
+import { RootLayout, Home, Destinations, MyAccount, Auth } from "./pages";
 
-const router = createBrowserRouter([
+const routerAuthorized = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
@@ -11,6 +15,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+
       {
         path: "/destinations",
         element: <Destinations />,
@@ -23,7 +28,22 @@ const router = createBrowserRouter([
   },
 ]);
 
+const routerUnauthorized = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/auth" />,
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+  },
+]);
+
 function App() {
+  const isAuthenticated = true;
+
+  const router = isAuthenticated ? routerAuthorized : routerUnauthorized;
+
   return <RouterProvider router={router} />;
 }
 

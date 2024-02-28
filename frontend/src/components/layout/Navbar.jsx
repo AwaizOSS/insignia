@@ -1,11 +1,17 @@
+import { Link } from "react-router-dom";
+
 function SideNav() {
   return (
     <div className="sidenav">
       <div>
-        <p>Home</p>
+        <Link to="/">
+          <p>Home</p>
+        </Link>
       </div>
       <div>
-        <p>Destinations</p>
+        <Link to="/destinations">
+          <p>Destinations</p>
+        </Link>
       </div>
       <div>
         <p>Members</p>
