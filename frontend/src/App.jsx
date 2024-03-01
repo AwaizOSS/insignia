@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import { RootLayout, Home, Destinations, MyAccount, Auth } from "./pages";
+import Studio from "./pages/Studio";
 
 const routerAuthorized = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routerAuthorized = createBrowserRouter([
         element: <MyAccount />,
       },
     ],
+  },
+  {
+    path: "/studio",
+    element: <Studio />,
   },
 ]);
 
