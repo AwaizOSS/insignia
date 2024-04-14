@@ -4,7 +4,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { RootLayout, Home, Destinations, MyAccount, Auth } from "./pages";
+import {
+  RootLayout,
+  Home,
+  Destinations,
+  MyAccount,
+  Auth,
+  Stream,
+} from "./pages";
 
 const routerAuthorized = createBrowserRouter([
   {
@@ -25,6 +32,10 @@ const routerAuthorized = createBrowserRouter([
         element: <MyAccount />,
       },
     ],
+  },
+  {
+    path: "/stream",
+    element: <Stream />,
   },
 ]);
 
